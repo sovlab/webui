@@ -112,7 +112,7 @@ jobs:
 
       - name: Publish rolling release
         run: |
-          title="Stalwart WebUI ${ROLLING_TAG#v}.x"
+          title="SovLab WebUI ${ROLLING_TAG#v}.x"
           notes="Tracks the latest ${ROLLING_TAG#v}.x release."
           if gh release view "$ROLLING_TAG" >/dev/null 2>&1; then
             gh release edit "$ROLLING_TAG" --title "$title" --notes "$notes" --draft=false --prerelease=false --latest=false

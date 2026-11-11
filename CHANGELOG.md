@@ -2,7 +2,22 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [2.0.6] - Unreleased
+## [2.0.6] - 2026-11-10
+
+First SovLab release, based on Stalwart WebUI 2.0.5.
+
+### Added
+- Source code links on the login page and in the account menu (AGPL-3.0 section 13).
+- A build check that fails if code licensed only under the Stalwart Enterprise License is bundled.
+
+### Changed
+- SovLab logo, favicon and app icons, and the SovLab name in the OAuth client and in new TOTP enrollments.
+- New theme following the SovLab brand: white surfaces, navy text and primary actions, soft green for active states, and new error, warning, info and success colors in light and dark mode.
+- Enterprise-only menu items, row actions and form fields are hidden on community-edition servers instead of showing as locked.
+
+### Removed
+- Dashboard and Live Tracing pages, which are licensed only under the Stalwart Enterprise License.
+- The Enterprise trial upsell.
 
 ### Fixed
 - OIDC sign-in keeps a query already present in the provider's `authorization_endpoint` (for example Casdoor's `?organization=`) and appends its own parameters with `&`.
