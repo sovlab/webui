@@ -46,7 +46,7 @@ Key features:
 
 This fork is rebranded for SovLab and distributed to customers under **AGPL-3.0 only**. It must not ship code licensed solely under the Stalwart Enterprise License (SEL), because the SEL forbids redistribution.
 
-- `src/features/dashboard` and `src/features/tracing` are SEL-only. Nothing imports them, and they are excluded from typecheck and lint.
+- The SEL-only Dashboard (`src/features/dashboard`) and Live Tracing (`src/features/tracing`) pages are deleted from this repository, which is public. When an upstream merge reports a modify/delete conflict on them, resolve it by deleting them again (`git rm -r src/features/dashboard src/features/tracing`). To bring them back for internal use, revert the commit that deleted them.
 - SEL-only snippets (`// SPDX-SnippetBegin ... LicenseRef-SEL`) were removed from the shared files. When merging upstream, delete any new ones.
 - `vite.config.ts` fails the build if any module containing `SPDX-License-Identifier: LicenseRef-SEL` is bundled.
 - Enterprise-only items are hidden on community-edition servers instead of showing an upsell.

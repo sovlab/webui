@@ -7,8 +7,7 @@ import prettierConfig from 'eslint-config-prettier'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  // SEL-only code, not part of the SovLab build (see vite.config.ts).
-  globalIgnores(['dist', '.ignore', 'src/features/dashboard', 'src/features/tracing']),
+  globalIgnores(['dist', '.ignore']),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [

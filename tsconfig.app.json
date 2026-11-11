@@ -25,6 +25,5 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src"],
-  "exclude": ["src/features/dashboard", "src/features/tracing"]
+  "include": ["src"]
 }
