@@ -27,10 +27,10 @@ const CUSTOM_COMPONENTS: Record<string, CustomComponentRule> = {
 };
 
 // SovLab build: the Dashboard and Live Tracing pages are licensed under the
-// Stalwart Enterprise License only and are not part of this build, so the
-// server's links to them are hidden. Dashboard/<id> links resolve to no
+// Stalwart Enterprise License only and are not part of the public build, so the
+// server's links to them are hidden. The private Enterprise build includes them. Dashboard/<id> links resolve to no
 // schema object and are hidden by isLinkVisible.
-const EXCLUDED_COMPONENTS = new Set(['Dashboard', 'LiveTracing']);
+const EXCLUDED_COMPONENTS = new Set<string>(__SEL_FEATURES__ ? [] : ['Dashboard', 'LiveTracing']);
 
 function customComponentName(viewName: string): string | null {
   if (viewName.startsWith('CustomComponent/')) return viewName.slice('CustomComponent/'.length);

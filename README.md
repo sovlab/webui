@@ -49,6 +49,7 @@ This fork is rebranded for SovLab and distributed to customers under **AGPL-3.0 
 - The SEL-only Dashboard (`src/features/dashboard`) and Live Tracing (`src/features/tracing`) pages are deleted from this repository, which is public. When an upstream merge reports a modify/delete conflict on them, resolve it by deleting them again (`git rm -r src/features/dashboard src/features/tracing`). To bring them back for internal use, revert the commit that deleted them.
 - SEL-only snippets (`// SPDX-SnippetBegin ... LicenseRef-SEL`) were removed from the shared files. When merging upstream, delete any new ones.
 - `vite.config.ts` fails the build if any module containing `SPDX-License-Identifier: LicenseRef-SEL` is bundled.
+- A private repository, `sovlab/webui-enterprise`, adds the SEL pages back for SovLab's own licensed server. It builds with `SOVLAB_SEL_FEATURES=1`, which turns off that check and stops hiding the Dashboard and Live Tracing links. Its builds are never published.
 - Enterprise-only items are hidden on community-edition servers instead of showing an upsell.
 - The source code link (AGPL-3.0 section 13) points to `SOURCE_CODE_URL` in `src/lib/branding.ts`.
 - Colors, logo and type follow `brand/BRAND.md`.

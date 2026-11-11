@@ -20,3 +20,6 @@ interface ImportMeta {
 }
 
 declare const __APP_VERSION__: string;
+
+/** True only in the private SovLab Enterprise build (SOVLAB_SEL_FEATURES=1). */
+declare const __SEL_FEATURES__: boolean;

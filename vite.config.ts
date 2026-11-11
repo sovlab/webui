@@ -9,6 +9,11 @@ import pkg from './package.json' with { type: 'json' };
 // solely under the Stalwart Enterprise License (a file header or a snippet with
 // `SPDX-License-Identifier: LicenseRef-SEL`) must never end up in the bundle, for
 // example after merging upstream changes. Fail the build if it does.
+// The private SovLab Enterprise build (sovlab/webui-enterprise) sets
+// SOVLAB_SEL_FEATURES=1: it adds the SEL-only pages for SovLab's own licensed
+// server and is never published.
+const SEL_FEATURES = process.env.SOVLAB_SEL_FEATURES === '1';
+
 const SEL_ONLY = /SPDX-License-Identifier:\s*LicenseRef-SEL\b/;
 const SRC_DIR = path.resolve(import.meta.dirname, 'src') + path.sep;
 
@@ -31,9 +36,10 @@ export default defineConfig({
   base: './',
   define: {
     __APP_VERSION__: JSON.stringify(pkg.version),
+    __SEL_FEATURES__: JSON.stringify(SEL_FEATURES),
   },
   plugins: [
-    forbidSelOnlyCode,
+    ...(SEL_FEATURES ? [] : [forbidSelOnlyCode]),
     react(),
     babel({ presets: [reactCompilerPreset()] }),
     tailwindcss(),
