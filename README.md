@@ -42,6 +42,17 @@ Key features:
 
 <img src="./img/demo.gif">
 
+## SovLab build
+
+This fork is rebranded for SovLab and distributed to customers under **AGPL-3.0 only**. It must not ship code licensed solely under the Stalwart Enterprise License (SEL), because the SEL forbids redistribution.
+
+- `src/features/dashboard` and `src/features/tracing` are SEL-only. Nothing imports them, and they are excluded from typecheck and lint.
+- SEL-only snippets (`// SPDX-SnippetBegin ... LicenseRef-SEL`) were removed from the shared files. When merging upstream, delete any new ones.
+- `vite.config.ts` fails the build if any module containing `SPDX-License-Identifier: LicenseRef-SEL` is bundled.
+- Enterprise-only items are hidden on community-edition servers instead of showing an upsell.
+- The source code link (AGPL-3.0 section 13) points to `SOURCE_CODE_URL` in `src/lib/branding.ts`.
+- Colors, logo and type follow `brand/BRAND.md`.
+
 ## Get Started
 
 Stalwart WebUI is included with Stalwart Mail Server, to install Stalwart Mail Server on your server by following the instructions for your platform:

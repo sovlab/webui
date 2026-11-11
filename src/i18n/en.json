@@ -158,12 +158,7 @@
     "seconds": "Seconds"
   },
   "enterprise": {
-    "featureDisabled": "This feature requires an Enterprise license.",
-    "featureHint": "Enterprise feature",
-    "trialTitle": "Unlock Enterprise Features",
-    "trialDescription": "Get access to advanced features including multi-tenancy, AI-powered spam filtering, alerts, and more.",
-    "trialButton": "Start 30-Day Free Trial",
-    "whyNotFree": "Why is this not free?"
+    "featureDisabled": "This feature requires an Enterprise license."
   },
   "errorBoundary": {
     "title": "Something went wrong",
@@ -369,6 +364,7 @@
     "continue": "Continue",
     "error": "An unexpected error occurred",
     "prompt": "Enter your account name to continue",
+    "sourceCode": "Source code (AGPL-3.0)",
     "title": "Sign in",
     "usernamePlaceholder": "user@example.com"
   },
@@ -377,6 +373,7 @@
     "brandAlt": "SovLab"
   },
   "logout": "Logout",
+  "sourceCode": "Source code",
   "version": {
     "label": "SovLab WebUI v{{version}}, based on Stalwart WebUI"
   },
@@ -478,7 +475,6 @@
     "traceNotFound": "Trace not found",
     "valuePlaceholder": "Value..."
   },
-  "tryEnterprise": "Try Enterprise",
   "userMenu": "User menu",
   "value": {
     "itemCount_one": "{{count}} item",

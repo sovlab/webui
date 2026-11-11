@@ -22,8 +22,9 @@ export function useLayoutNavigation() {
 
   return {
     layouts,
-    isVisible: (viewName: string) => !schema || isLinkVisible(schema, viewName, canGet, hasPermission),
-    isLocked: (viewName: string) => isCommunity && !!schema && isLinkEnterprise(schema, viewName),
+    isVisible: (viewName: string) =>
+      !schema ||
+      (isLinkVisible(schema, viewName, canGet, hasPermission) && !(isCommunity && isLinkEnterprise(schema, viewName))),
     landingPath: (layout: Layout): string | null => {
       if (!schema) return null;
       const link = sectionLandingLink(schema, layout, edition, canGet, hasPermission);
