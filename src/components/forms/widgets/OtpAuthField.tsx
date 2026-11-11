@@ -15,6 +15,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { SECRET_MASK } from '@/lib/jmapUtils';
+import { getBasePath } from '@/lib/basePath';
 import type { WidgetProps } from '@/components/forms/widgets/types';
 import type { FieldTypeObject } from '@/types/schema';
 
@@ -23,17 +24,21 @@ interface OtpAuthValue {
   otpCode?: string | null;
 }
 
-const STALWART_IMAGE_URL = 'https://stalw.art/img/favicon-32x32.png';
+// Shown by authenticator apps that support the otpauth `image` parameter.
+// Served from this WebUI so it works on any deployment hostname.
+function brandImageUrl(): string {
+  return `${window.location.origin}${getBasePath()}/icon-256.png`;
+}
 
 function buildOtpAuthUrl(totp: OTPAuth.TOTP): string {
   const base = totp.toString();
   const sep = base.includes('?') ? '&' : '?';
-  return `${base}${sep}image=${encodeURIComponent(STALWART_IMAGE_URL)}`;
+  return `${base}${sep}image=${encodeURIComponent(brandImageUrl())}`;
 }
 
 function generateTotp(): { totp: OTPAuth.TOTP; url: string } {
   const totp = new OTPAuth.TOTP({
-    issuer: 'Stalwart',
+    issuer: 'SovLab',
     label: 'account',
     algorithm: 'SHA1',
     digits: 6,

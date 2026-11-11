@@ -1,6 +1,6 @@
 {
-  "client_name": "Stalwart Web Interface",
-  "client_uri": "https://stalw.art",
+  "client_name": "SovLab Web Interface",
+  "client_uri": "https://github.com/sovlab/webui",
   "logo_uri": "logo.svg",
   "redirect_uris": ["oauth/callback"],
   "post_logout_redirect_uris": ["login"],

@@ -24,20 +24,15 @@ interface CustomComponentRule {
 
 const CUSTOM_COMPONENTS: Record<string, CustomComponentRule> = {
   LiveDelivery: { permission: 'liveDeliveryTest' },
-  // SPDX-SnippetBegin
-  // SPDX-FileCopyrightText: 2020 Stalwart Labs LLC <hello@stalw.art>
-  // SPDX-License-Identifier: LicenseRef-SEL
-  Dashboard: { permission: 'liveMetrics', backingObject: 'x:Metric' },
-  LiveTracing: { permission: 'liveTracing', enterprise: true },
-  // SPDX-SnippetEnd
 };
 
+// SovLab build: the Dashboard and Live Tracing pages are licensed under the
+// Stalwart Enterprise License only and are not part of this build, so the
+// server's links to them are hidden. Dashboard/<id> links resolve to no
+// schema object and are hidden by isLinkVisible.
+const EXCLUDED_COMPONENTS = new Set(['Dashboard', 'LiveTracing']);
+
 function customComponentName(viewName: string): string | null {
-  // SPDX-SnippetBegin
-  // SPDX-FileCopyrightText: 2020 Stalwart Labs LLC <hello@stalw.art>
-  // SPDX-License-Identifier: LicenseRef-SEL
-  if (viewName.startsWith('Dashboard/')) return 'Dashboard';
-  // SPDX-SnippetEnd
   if (viewName.startsWith('CustomComponent/')) return viewName.slice('CustomComponent/'.length);
   return null;
 }
@@ -50,6 +45,7 @@ function checkSpecialLink(
 ): SpecialLinkInfo | null {
   const component = customComponentName(viewName);
   if (component === null) return null;
+  if (EXCLUDED_COMPONENTS.has(component)) return { visible: false, enterprise: false };
   const rule = CUSTOM_COMPONENTS[component];
   if (!rule) return { visible: true, enterprise: false };
 

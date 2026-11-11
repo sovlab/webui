@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { ArrowRight, Loader2 } from 'lucide-react';
 
 import Logo from '@/components/common/Logo';
+import { SOURCE_CODE_URL } from '@/lib/branding';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -97,6 +98,16 @@ export default function LoginPage() {
           </Button>
         </form>
       </div>
+      <p className="relative mt-6 text-center text-xs text-muted-foreground">
+        <a
+          href={SOURCE_CODE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline-offset-4 hover:text-foreground hover:underline"
+        >
+          {t('login.sourceCode', 'Source code (AGPL-3.0)')}
+        </a>
+      </p>
     </div>
   );
 }
