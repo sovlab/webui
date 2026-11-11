@@ -374,11 +374,11 @@
   },
   "logo": {
     "alt": "Logo",
-    "stalwartAlt": "Stalwart Logo"
+    "brandAlt": "SovLab"
   },
   "logout": "Logout",
   "version": {
-    "label": "Stalwart WebUI v{{version}}"
+    "label": "SovLab WebUI v{{version}}, based on Stalwart WebUI"
   },
   "oauth": {
     "backToLogin": "Back to login",

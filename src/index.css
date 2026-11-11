@@ -5,7 +5,6 @@
  */
 
 @import '@fontsource-variable/inter';
-@import '@fontsource-variable/plus-jakarta-sans';
 @import '@fontsource-variable/jetbrains-mono';
 @import 'tailwindcss';
 @import 'tw-animate-css';
@@ -13,151 +12,163 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #f5f2ec;
-  --foreground: #1c1a17;
+  --brand-green: #14b87a;
 
-  --card: #fffdf9;
-  --card-foreground: #1c1a17;
+  /*
+   * SovLab theme. Values come from brand/BRAND.md ("Web app palette").
+   * Light: white surfaces, navy ink, navy primary actions, soft green for
+   * selection and active states. Bright SovLab Green is kept for the logo dot
+   * and small accents only, so the interface stays calm.
+   */
+  --background: #ffffff;
+  --foreground: #0e1a2b;
 
-  --popover: #fffdf9;
-  --popover-foreground: #1c1a17;
+  --card: #ffffff;
+  --card-foreground: #0e1a2b;
 
-  --field: #fffdf9;
+  --popover: #ffffff;
+  --popover-foreground: #0e1a2b;
 
-  --primary: #db2d54;
-  --primary-hover: #c12148;
+  --field: #ffffff;
+
+  --primary: #0e1a2b;
+  --primary-hover: #1f2f45;
   --primary-foreground: #ffffff;
-  --brand-text: #bf1f45;
+  --primary-shadow: rgb(14 26 43 / 0.45);
+  --brand-text: #0b7a50;
 
-  --secondary: #efe9df;
-  --secondary-foreground: #1c1a17;
+  --secondary: #f4f5f7;
+  --secondary-foreground: #0e1a2b;
 
-  --muted: #efe9df;
-  --muted-strong: #e7e0d4;
-  --muted-foreground: #5a534b;
-  --dim: #6b645b;
+  --muted: #f4f5f7;
+  --muted-strong: #e9ecf0;
+  --muted-foreground: #5b6676;
+  --dim: #646f81;
 
-  --accent: #efe9df;
-  --accent-foreground: #1c1a17;
+  --accent: #f4f5f7;
+  --accent-foreground: #0e1a2b;
 
-  --highlight: #fbe7ea;
-  --highlight-strong: #f7d5db;
-  --highlight-foreground: #bf1f45;
+  --highlight: #e6f6ef;
+  --highlight-strong: #cdefdf;
+  --highlight-foreground: #0a6b47;
 
-  --clay: #ecdcc8;
-  --clay-foreground: #1c1a17;
-  --clay-muted: #6e5d4b;
+  --clay: #e9edf3;
+  --clay-foreground: #0e1a2b;
+  --clay-muted: #4a5b73;
 
-  --ink: #1c1a17;
-  --ink-2: #2a2723;
-  --ink-foreground: #f3eee7;
-  --ink-muted: #b9b0a5;
+  --ink: #0e1a2b;
+  --ink-2: #1f2f45;
+  --ink-foreground: #f1f4f8;
+  --ink-muted: #a3aebd;
   --ink-edge: rgb(255 255 255 / 0);
-  --ink-accent: #ff8199;
-  --ink-danger: #ff9d78;
-  --ink-success: #6fcf97;
-  --overlay: rgb(28 26 23 / 0.45);
+  --ink-accent: #3dd69a;
+  --ink-danger: #f58a8f;
+  --ink-success: #3dd69a;
+  --overlay: rgb(14 26 43 / 0.45);
 
-  --destructive: #c2410c;
-  --destructive-hover: #a8380a;
-  --destructive-soft: #fde8dc;
+  --destructive: #c42b36;
+  --destructive-hover: #a8232d;
+  --destructive-soft: #fdecec;
   --destructive-foreground: #ffffff;
 
-  --success: #2f7d4f;
-  --success-soft: #e1f0e4;
-  --warning: #a16207;
-  --warning-soft: #fbefd2;
-  --info: #2563a8;
-  --info-soft: #e1ebf6;
+  --success: #0b7a50;
+  --success-soft: #e6f6ef;
+  --warning: #9a5a00;
+  --warning-soft: #fef3e0;
+  --info: #1d5fae;
+  --info-soft: #e8f0fa;
 
-  --border: rgb(28 26 23 / 0.09);
-  --input: rgb(28 26 23 / 0.16);
-  --ring: #bf1f45;
+  --border: rgb(14 26 43 / 0.09);
+  --input: rgb(14 26 43 / 0.18);
+  --ring: #0b7a50;
+  --edge: rgb(14 26 43 / 0.08);
 
   --radius: 0.75rem;
 
-  --shadow-c: rgb(62 44 26 / 0.2);
-  --shadow-c2: rgb(62 44 26 / 0.05);
+  --shadow-c: rgb(14 26 43 / 0.16);
+  --shadow-c2: rgb(14 26 43 / 0.05);
   --hi: rgb(255 255 255 / 0);
 
-  --chart-1: #db2d54;
-  --chart-2: #2a9d8f;
-  --chart-3: #d9822b;
-  --chart-4: #4a3f8f;
-  --chart-5: #8b7e6e;
+  --chart-1: #0e9a66;
+  --chart-2: #1d5fae;
+  --chart-3: #d08a1e;
+  --chart-4: #6b5bc4;
+  --chart-5: #8792a2;
 }
 
 .dark {
-  --background: #121213;
-  --foreground: #f2f2f3;
+  --background: #0e1a2b;
+  --foreground: #eef2f7;
 
-  --card: #1f1f22;
-  --card-foreground: #f2f2f3;
+  --card: #16263b;
+  --card-foreground: #eef2f7;
 
-  --popover: #232326;
-  --popover-foreground: #f2f2f3;
+  --popover: #1b2c43;
+  --popover-foreground: #eef2f7;
 
-  --field: #18181a;
+  --field: #122136;
 
-  --primary: #db2d54;
-  --primary-hover: #e8476b;
-  --primary-foreground: #ffffff;
-  --brand-text: #ff8199;
+  --primary: #14b87a;
+  --primary-hover: #2ccb8c;
+  --primary-foreground: #0e1a2b;
+  --primary-shadow: rgb(20 184 122 / 0.45);
+  --brand-text: #3dd69a;
 
-  --secondary: #2a2a2e;
-  --secondary-foreground: #f2f2f3;
+  --secondary: #1f3047;
+  --secondary-foreground: #eef2f7;
 
-  --muted: #2a2a2e;
-  --muted-strong: #323237;
-  --muted-foreground: #b5b5ba;
-  --dim: #9e9ea4;
+  --muted: #1f3047;
+  --muted-strong: #2a3a50;
+  --muted-foreground: #a3aebd;
+  --dim: #8c98aa;
 
-  --accent: #2a2a2e;
-  --accent-foreground: #f2f2f3;
+  --accent: #1f3047;
+  --accent-foreground: #eef2f7;
 
-  --highlight: #2f1a21;
-  --highlight-strong: #45212d;
-  --highlight-foreground: #ff8199;
+  --highlight: #0f3a2e;
+  --highlight-strong: #145040;
+  --highlight-foreground: #4adba2;
 
-  --clay: #33291f;
-  --clay-foreground: #f2f2f3;
-  --clay-muted: #c4b5a5;
+  --clay: #1f3047;
+  --clay-foreground: #eef2f7;
+  --clay-muted: #a3aebd;
 
-  --ink: #0b0b0c;
-  --ink-2: #1b1b1e;
-  --ink-foreground: #f2f2f3;
-  --ink-muted: #ababb1;
+  --ink: #070e18;
+  --ink-2: #16263b;
+  --ink-foreground: #eef2f7;
+  --ink-muted: #a3aebd;
   --ink-edge: rgb(255 255 255 / 0.07);
-  --ink-accent: #ff8199;
-  --ink-danger: #ff9d78;
-  --ink-success: #6fcf97;
-  --overlay: rgb(0 0 0 / 0.7);
+  --ink-accent: #3dd69a;
+  --ink-danger: #f58a8f;
+  --ink-success: #3dd69a;
+  --overlay: rgb(4 9 16 / 0.7);
 
-  --destructive: #e0602f;
-  --destructive-hover: #ea7246;
-  --destructive-soft: #3a2119;
-  --destructive-foreground: #ffffff;
+  --destructive: #f2777e;
+  --destructive-hover: #f58a8f;
+  --destructive-soft: #3b1d24;
+  --destructive-foreground: #0e1a2b;
 
-  --success: #6fcf97;
-  --success-soft: #1b2e23;
-  --warning: #f2c46d;
-  --warning-soft: #332a17;
-  --info: #7fb3ec;
-  --info-soft: #1a2633;
+  --success: #3dd69a;
+  --success-soft: #0f3a2e;
+  --warning: #f0b455;
+  --warning-soft: #33281a;
+  --info: #7db2f0;
+  --info-soft: #16293f;
 
   --border: rgb(255 255 255 / 0.08);
   --input: rgb(255 255 255 / 0.14);
-  --ring: #ff8199;
+  --ring: #3dd69a;
+  --edge: rgb(255 255 255 / 0.05);
 
-  --shadow-c: rgb(0 0 0 / 0.72);
-  --shadow-c2: rgb(0 0 0 / 0.3);
-  --hi: rgb(255 255 255 / 0.045);
+  --shadow-c: rgb(0 0 0 / 0.6);
+  --shadow-c2: rgb(0 0 0 / 0.25);
+  --hi: rgb(255 255 255 / 0.04);
 
-  --chart-1: #ff5c7f;
-  --chart-2: #4cc3b3;
-  --chart-3: #f0a35a;
+  --chart-1: #3dd69a;
+  --chart-2: #7db2f0;
+  --chart-3: #f0b455;
   --chart-4: #a99bf0;
-  --chart-5: #9e9ea4;
+  --chart-5: #a3aebd;
 }
 
 @theme inline {
@@ -233,15 +244,17 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 14px);
 
-  --shadow-tile: inset 0 1px 0 var(--hi), 0 1px 2px var(--shadow-c2), 0 12px 28px -20px var(--shadow-c);
-  --shadow-lift: inset 0 1px 0 var(--hi), 0 2px 4px var(--shadow-c2), 0 22px 40px -22px var(--shadow-c);
+  --shadow-tile:
+    inset 0 1px 0 var(--hi), 0 0 0 1px var(--edge), 0 1px 2px var(--shadow-c2), 0 12px 28px -20px var(--shadow-c);
+  --shadow-lift:
+    inset 0 1px 0 var(--hi), 0 0 0 1px var(--edge), 0 2px 4px var(--shadow-c2), 0 22px 40px -22px var(--shadow-c);
   --shadow-pop: inset 0 1px 0 var(--hi), 0 2px 6px var(--shadow-c2), 0 26px 50px -16px var(--shadow-c);
   --shadow-ink: inset 0 0 0 1px var(--ink-edge), 0 2px 6px var(--shadow-c2), 0 26px 50px -16px var(--shadow-c);
-  --shadow-primary: 0 8px 20px -12px rgb(219 45 84 / 0.8);
+  --shadow-primary: 0 8px 20px -12px var(--primary-shadow);
 
   --font-sans:
     'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-display: 'Plus Jakarta Sans Variable', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-mono:
     'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
 
@@ -368,6 +381,6 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--primary);
+    background: var(--brand-green);
   }
 }

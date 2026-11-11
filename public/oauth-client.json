@@ -1,5 +1,5 @@
 {
-  "client_name": "Stalwart Web Interface",
+  "client_name": "SovLab Web Interface",
   "client_uri": "https://stalw.art",
   "logo_uri": "logo.svg",
   "redirect_uris": ["oauth/callback"],

@@ -1,0 +1,93 @@
+/* SovLab brand tokens. Generated from tokens.json. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap");
+
+:root {
+  --surface: #FFFFFF;
+  --surface-alt: #F4F5F7;
+  --line: #D9DEE5;
+  --ink: #0E1A2B;
+  --ink-muted: #5B6676;
+  --navy: #0E1A2B;
+  --green: #14B87A;
+  --green-text: #0B7A50;
+  --green-soft: #E3F7EE;
+  --on-green: #0E1A2B;
+  --green-strong: #0E9A66;
+  --danger: #C42B36;
+  --danger-soft: #FDECEC;
+  --warning: #9A5A00;
+  --warning-soft: #FEF3E0;
+  --info: #1D5FAE;
+  --info-soft: #E8F0FA;
+  --success: #0B7A50;
+  --success-soft: #E6F6EF;
+  --violet: #6B5BC4;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-6: 48px;
+  --space-12: 96px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+  --surface: #0E1A2B;
+  --surface-alt: #16263B;
+  --line: #2A3A50;
+  --ink: #FFFFFF;
+  --ink-muted: #A3AEBD;
+  --navy: #0E1A2B;
+  --green: #14B87A;
+  --green-text: #3DD69A;
+  --green-soft: #0F3A2E;
+  --on-green: #0E1A2B;
+    --green-strong: #3DD69A;
+    --danger: #F2777E;
+    --danger-soft: #3B1D24;
+    --warning: #F0B455;
+    --warning-soft: #33281A;
+    --info: #7DB2F0;
+    --info-soft: #16293F;
+    --success: #3DD69A;
+    --success-soft: #0F3A2E;
+    --violet: #A99BF0;
+  }
+}
+:root[data-theme="dark"] {
+  --surface: #0E1A2B;
+  --surface-alt: #16263B;
+  --line: #2A3A50;
+  --ink: #FFFFFF;
+  --ink-muted: #A3AEBD;
+  --navy: #0E1A2B;
+  --green: #14B87A;
+  --green-text: #3DD69A;
+  --green-soft: #0F3A2E;
+  --on-green: #0E1A2B;
+  --green-strong: #3DD69A;
+  --danger: #F2777E;
+  --danger-soft: #3B1D24;
+  --warning: #F0B455;
+  --warning-soft: #33281A;
+  --info: #7DB2F0;
+  --info-soft: #16293F;
+  --success: #3DD69A;
+  --success-soft: #0F3A2E;
+  --violet: #A99BF0;
+}
+
+.slide-title { font-family: var(--font-sans); font-size: 72px; line-height: 80px; font-weight: 700; letter-spacing: -0.02em; }
+.slide-heading { font-family: var(--font-sans); font-size: 48px; line-height: 56px; font-weight: 700; letter-spacing: -0.01em; }
+.slide-body { font-family: var(--font-sans); font-size: 28px; line-height: 40px; font-weight: 400; }
+.slide-caption { font-family: var(--font-sans); font-size: 18px; line-height: 24px; font-weight: 500; letter-spacing: 0.02em; color: var(--ink-muted); }
+.doc-title { font-family: var(--font-sans); font-size: 32px; line-height: 40px; font-weight: 700; letter-spacing: -0.01em; }
+.doc-heading { font-family: var(--font-sans); font-size: 20px; line-height: 28px; font-weight: 600; }
+.doc-subheading { font-family: var(--font-sans); font-size: 16px; line-height: 24px; font-weight: 600; }
+.doc-body { font-family: var(--font-sans); font-size: 15px; line-height: 24px; font-weight: 400; }
+.doc-caption { font-family: var(--font-sans); font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.02em; color: var(--ink-muted); }
+.code { font-family: var(--font-mono); font-size: 13px; line-height: 20px; font-weight: 400; }
