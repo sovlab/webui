@@ -1,6 +1,6 @@
 # SovLab brand guide
 
-Version 1.1, November 2026. This folder is the single source of truth for SovLab colors, type, logo and layout.
+Version 1.3, November 2026 (1.2: app layout; 1.3: apps take the look of SovLab's Stalwart web interface). This folder is the single source of truth for SovLab colors, type, logo and layout.
 
 ## Files in this folder
 
@@ -70,11 +70,27 @@ Rules:
 
 Documents and slides can carry a lot of green. Interfaces cannot: an admin screen is full of buttons, toggles, badges and selected rows, and if all of them are bright green the page gets loud fast. So inside applications the rules shift a little.
 
-- Page and panels are white (`surface`). Separate cards from the page with a 1px `line` hairline and a soft shadow, not with a tinted background.
+- Page and panels are white (`surface`). Cards are rounded tiles (20px) lifted from the page by a hairline ring and a soft shadow, not by a tinted background.
 - Primary buttons, checked toggles and checkboxes are navy in light mode. In dark mode they are `green` with navy text (`on-green`).
 - Green appears as a tint, not a fill: active navigation, selected rows and tags use `success-soft` with `green-text`. Focus rings use `green-text`.
 - Bright `green` stays for the logo dot, small dots and accents, and the dark-mode primary button.
 - Status colors (below) are only used for states. Never use `danger` or `warning` for decoration.
+
+### Layout
+
+Every app looks like SovLab's Stalwart web interface (github.com/sovlab/webui): the control plane (staff), the customer portal and Stalwart's own admin should feel like one product. Its CSS tokens (`src/index.css`) are the reference; the control plane copies them into `admin.css`. Calm and dense, rounded and soft, with clear contrast on the actions.
+
+- **Top bar** (64px, page background, slightly translucent): the logo on the left (30px tall), breadcrumbs next to it (muted links, the current page in `ink`, semibold), and on the right the environment tag (a green-tinted pill with a dot: `● sandbox`), a light/dark toggle and a round account button (40px) that opens the person's name and "Sign out".
+- **Sidebar**: a floating tile (240px, 12px from the window edges, 20px radius) under the top bar. The product or tenant name as a small uppercase label at the top, then the navigation: top-level items are a 16px line icon and a label; related pages sit in a **group that opens and closes** (icon, label, chevron that turns), its children indented behind a thin vertical line and without icons. Items are 36px (children 32px) with 10px rounded corners; the current page is `success-soft` with `green-text`, semibold. The group holding the current page is open; other groups remember what the person chose. Below 860px the sidebar becomes a tile above the page.
+- **Page head:** a round back button (40px) on detail pages, the title (26px, weight ~720, tight letter-spacing) with its status badge beside it, one muted line of context under it (14px), and the actions on the right: **one** primary button for the common task, everything else in a secondary "Actions" menu, destructive items last in `danger` after a divider.
+- **Buttons** are pills (fully rounded, 36px, semibold 14px). Primary: navy with a soft navy shadow (dark mode: `green` with navy text). Secondary: a white tile with the hairline ring, lifting on hover. Destructive: `danger` fill.
+- **Menus** are rounded popovers (16px radius, 6px padding, items with 10px corners); small uppercase labels group the items.
+- **Tables** sit on a tile (20px radius). Column headers are 11px, semibold, uppercase with letter-spacing, in `dim` gray. Rows are ~44px, separated by hairlines, with a light hover. The first column is the link (semibold `ink`). Empty tables say so in one muted line inside the table.
+- **Status** is a soft pill: a 6px dot and the word in the state color on its `-soft` background (`success`, `info` in progress, `warning` waiting, `danger` failed, gray otherwise).
+- **Key facts** (tier, language, dates) are a grid on one tile: small uppercase label, semibold value.
+- **Forms** are one tile of field rows separated by hairlines: label (semibold) and hint on the left third, the input on the right (40px, 12px radius, hairline ring, green focus ring). The buttons at the bottom left. A change that removes data previews first and asks to type its name.
+- **Words:** sentence case in labels and text (uppercase only for table headers, fact labels and the sidebar's product label), short labels ("Add a mailbox", "Audit log"), no exclamation marks, no emoji, no marketing tone in the app.
+- Line icons are drawn in the app (stroke `currentColor`, 1.75 width), never loaded from a third party.
 
 ### Status and UI colors
 
@@ -97,7 +113,7 @@ Chart series order in apps: `green-strong`, `info`, warning amber (#D08A1E, char
 
 ### Web app logo
 
-Use the full logo (brackets, dot and wordmark) at 28px tall in the top bar, which renders about 113px wide and stays above the 100px minimum. Draw the brackets and wordmark in the current text color so one file serves both themes; the dot is always `green`. Use `sovlab-icon.svg` for favicons and app icons.
+Use the full logo (brackets, dot and wordmark) at 30px tall at the left of the top bar (never below 28px, about 113px wide, above the 100px minimum). Draw the brackets and wordmark in the current text color so one file serves both themes; the dot is always `green`. Use `sovlab-icon.svg` for favicons and app icons.
 
 ## Typography
 
