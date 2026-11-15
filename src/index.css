@@ -289,6 +289,15 @@
   }
 }
 
+/* SovLab sign-in pages (brand/BRAND.md 1.4): a soft gray fade, the same as the webmail's and the SSO pages'. */
+@utility login-backdrop {
+  background: linear-gradient(180deg, #e3e6e9 0%, #f8fafc 65%);
+
+  .dark & {
+    background: linear-gradient(180deg, #112532 0%, #0e1a2b 65%);
+  }
+}
+
 @utility tile {
   background-color: var(--card);
   color: var(--card-foreground);

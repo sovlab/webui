@@ -1,6 +1,6 @@
 # SovLab brand guide
 
-Version 1.3, November 2026 (1.2: app layout; 1.3: apps take the look of SovLab's Stalwart web interface). This folder is the single source of truth for SovLab colors, type, logo and layout.
+Version 1.4, November 2026 (1.2: app layout; 1.3: apps take the look of SovLab's Stalwart web interface; 1.4: one sign-in page). This folder is the single source of truth for SovLab colors, type, logo and layout.
 
 ## Files in this folder
 
@@ -89,6 +89,11 @@ Every app looks like SovLab's Stalwart web interface (github.com/sovlab/webui): 
 - **Status** is a soft pill: a 6px dot and the word in the state color on its `-soft` background (`success`, `info` in progress, `warning` waiting, `danger` failed, gray otherwise).
 - **Key facts** (tier, language, dates) are a grid on one tile: small uppercase label, semibold value.
 - **Forms** are one tile of field rows separated by hairlines: label (semibold) and hint on the left third, the input on the right (40px, 12px radius, hairline ring, green focus ring). The buttons at the bottom left. A change that removes data previews first and asks to type its name.
+- **Sign-in pages** (Stalwart's web interface, webmail, the SSO pages) look the same:
+  - Page: a soft gray fade, `#E3E6E9` at the top to `#F8FAFC` from 65% of the height down (light; that is 8% navy mixed into `#F8FAFC` in OKLab). Dark: `#112532` to `#0E1A2B` (8% `green` into navy). No picture, no glow.
+  - One white tile in the middle, 400px wide (full width minus 16px on a phone), 20px radius, hairline ring and soft shadow. Nothing above it (no realm or environment label) and no footer under it, except a required legal link such as the source code.
+  - In the tile, centered: the full logo, 28px tall; the title (26px, weight ~720, for example "Sign in"); one muted line under it (14px). Then the fields and buttons, full width, all pills 44px tall: fields with the hairline ring and green focus ring, the primary action navy (dark mode: `green` with navy text), secondary actions white with the hairline ring. Where single sign-on exists it comes first, as the primary button; password sign-in is a small muted link under it.
+  - Webmail (Bulwark) can only be configured, not restyled: it keeps its own square-cornered buttons and a black dark mode.
 - **Words:** sentence case in labels and text (uppercase only for table headers, fact labels and the sidebar's product label), short labels ("Add a mailbox", "Audit log"), no exclamation marks, no emoji, no marketing tone in the app.
 - Line icons are drawn in the app (stroke `currentColor`, 1.75 width), never loaded from a third party.
 

@@ -46,11 +46,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-background px-4 py-10">
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-[28rem] bg-[radial-gradient(48rem_22rem_at_50%_-4rem,var(--highlight),transparent_72%)]"
-        aria-hidden="true"
-      />
+    <div className="login-backdrop relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 py-10">
       <div className="tile relative w-full max-w-[400px] px-7 pb-8 pt-9 sm:px-9">
         <div className="flex justify-center text-foreground">
           <Logo />
