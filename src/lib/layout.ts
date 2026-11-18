@@ -7,6 +7,7 @@
 import type { Layout, LayoutSubItem, Schema } from '@/types/schema';
 import { resolveObject } from '@/lib/schemaResolver';
 import { isCommunityEdition, isCreateOnly } from '@/lib/permissions';
+import { CUSTOM_COMPONENT_PREFIX, matchRoutePage } from '@/extensions/pages';
 
 export type CanGet = (permissionPrefix: string) => boolean;
 export type HasPermission = (permission: string) => boolean;
@@ -16,26 +17,11 @@ interface SpecialLinkInfo {
   enterprise: boolean;
 }
 
-interface CustomComponentRule {
-  permission: string;
-  backingObject?: string;
-  enterprise?: boolean;
-}
-
-const CUSTOM_COMPONENTS: Record<string, CustomComponentRule> = {
-  LiveDelivery: { permission: 'liveDeliveryTest' },
-};
-
 // SovLab build: the Dashboard and Live Tracing pages are licensed under the
 // Stalwart Enterprise License only and are not part of the public build, so the
-// server's links to them are hidden. The private Enterprise build includes them. Dashboard/<id> links resolve to no
-// schema object and are hidden by isLinkVisible.
+// server's links to them are hidden. The private Enterprise build includes them.
+// Dashboard/<id> links resolve to no schema object and are hidden by isLinkVisible.
 const EXCLUDED_COMPONENTS = new Set<string>(__SEL_FEATURES__ ? [] : ['Dashboard', 'LiveTracing']);
-
-function customComponentName(viewName: string): string | null {
-  if (viewName.startsWith('CustomComponent/')) return viewName.slice('CustomComponent/'.length);
-  return null;
-}
 
 function checkSpecialLink(
   schema: Schema,
@@ -43,10 +29,15 @@ function checkSpecialLink(
   hasPerm?: HasPermission,
   canGet?: CanGet,
 ): SpecialLinkInfo | null {
-  const component = customComponentName(viewName);
-  if (component === null) return null;
-  if (EXCLUDED_COMPONENTS.has(component)) return { visible: false, enterprise: false };
-  const rule = CUSTOM_COMPONENTS[component];
+  if (
+    viewName.startsWith(CUSTOM_COMPONENT_PREFIX) &&
+    EXCLUDED_COMPONENTS.has(viewName.slice(CUSTOM_COMPONENT_PREFIX.length))
+  ) {
+    return { visible: false, enterprise: false };
+  }
+  const page = matchRoutePage(viewName);
+  if (!page && !viewName.startsWith(CUSTOM_COMPONENT_PREFIX)) return null;
+  const rule = page?.gate;
   if (!rule) return { visible: true, enterprise: false };
 
   const backing = rule.backingObject ? resolveObject(schema, rule.backingObject) : null;
