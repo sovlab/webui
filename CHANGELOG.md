@@ -2,11 +2,6 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
-
-### Fixed
-- Clicking or hovering a list row in Safari now targets that row instead of the last row of the table.
-
 ## [2.1.1] - 2026-11-23
 
 ### Added
@@ -17,6 +12,9 @@ All notable changes to this project will be documented in this file. This projec
 - Rule page with a summary of what the rule does, a Conditions step and an Actions step. Each action appears at most once, as a card added from grouped buttons.
 - Trash and Junk are ordinary move and copy targets, and read, flagged and not spam are shown by name instead of as keywords.
 - The rule summary is fully translatable: whole-sentence templates, plural forms and lists joined for the user's locale.
+
+### Fixed
+- Clicking or hovering a list row in Safari now targets that row instead of the last row of the table.
 
 ## [2.1.0] - 2026-11-18
 
